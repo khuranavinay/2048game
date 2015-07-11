@@ -1,0 +1,99 @@
+div#arena {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    width: 80%;
+    height: 500px;
+    margin: 5% auto;
+    justify-content: space-around;
+    border-radius: 10px;
+    border-style: solid;
+}
+
+.row {
+    height: 25%;
+    background-color: yellowgreen;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.box {
+    width: 24%;
+    height: 90%;
+    background-color: cornflowerblue;
+    font-size: 6rem;
+    text-align: center;
+}
+
+body {
+    background-color: white;
+    height: 100%;
+}
+
+._2{
+    background-color:blueviolet;
+}
+._4{
+    background-color: crimson;
+}
+._8{
+    background-color: aqua;
+}
+._16{
+    background-color: yellow;
+}
+._32{
+    background-color: darkmagenta;
+}
+._64{
+    background-color: coral;
+}
+._128{
+    background-color: plum;
+}
+._256{
+    background-color: slategray;
+}
+._512{
+    background-color: sienna;
+}
+._1024{
+    background-color:snow;
+}
+._2048{
+    background-color:white;
+}
+._2:after {
+    content: "2";
+}
+._4:after {
+    content: "4";
+}
+._8:after {
+    content: "8";
+}
+._16:after {
+    content: "16";
+}
+._32:after {
+    content: "32";
+}
+._64:after {
+    content: "64";
+}
+._128:after {
+    content: "128";
+}
+._256:after {
+    content: "256";
+}
+._512:after {
+    content: "512";
+}
+._1024:after {
+    content: "1024";
+}
+._2048:after {
+    content: "2048";
+}
