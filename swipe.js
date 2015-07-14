@@ -1,5 +1,5 @@
 var onSwipeDetect = (function() {
-    var threshold = 150,
+    var threshold = 50,
         errorMargin = 50,
         allowedTime = 500,
         startX, 
