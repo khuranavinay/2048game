@@ -1,19 +1,20 @@
-div#matrix {
+#matrix {
     display: flex;
     flex-direction: column;
-    background-color: white;
+    /* background-color: white; */
     width: 500px;
     height: 500px;
-    /* margin: 5% auto; */
     justify-content: space-around;
     border-radius: 40px;
     border-style: solid;
     overflow: hidden;
     box-sizing: border-box;
     border-width: 12px;
-    /* border-color: white; */
 }
-
+a{
+  text-decoration:none;
+  color:cornflowerblue;
+}
 .row {
     height: 25%;
     background-color: black;
@@ -42,11 +43,11 @@ div#matrix {
 #highscore:before{
     content: "High Score : ";
 }
-div#scores {
+#scores {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     background-color: black;
-    width: 400px;
+    width: 35%;
     height: 10%;
     align-items: center;
     font-size: x-large;
@@ -54,8 +55,26 @@ div#scores {
     font-weight: bold;
     border: solid 4px rgb(85, 190, 178);
     border-radius: 20px;
+    text-align: center;
 }
-div#arena {
+#score{
+  padding-right:3%;
+}
+#highscore{
+  padding-left:3%;
+}
+#reset{
+   background-color: black;
+   width: 90px;
+   height: 3.5%;
+   text-align: center;
+   font-size: larger;
+   color: cornflowerblue;
+   font-weight: bold;
+   border: solid 4px rgb(85, 190, 178);
+   border-radius: 20px;
+}
+#arena {
   height: 100%;
   display: flex;
   justify-content: space-around;
@@ -140,4 +159,25 @@ body {
 }
 ._4096:after {
     content: "4096";
+}
+@media (max-width: 670px) {
+    #matrix{
+      width:300px;
+      height:300px;
+    
+      margin: 10% 0;
+}
+    #scores{
+      font-size: 1rem;
+      width: 75%;
+      margin-top: 4%;
+      height: 5%;
+}
+    .box{
+      font-size:1.5rem;
+      line-height:70px;
+    }
+    #arena{
+      justify-content:flex-start;
+    }
 }

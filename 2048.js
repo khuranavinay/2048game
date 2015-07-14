@@ -297,18 +297,22 @@ var mygame = (function()
 			}
 		}
 	}
-	function move(e)
+	function move(e,direction)
 	{
-        e.preventDefault;
+        if(e!=1)
+        {
+            e.preventDefault;
+            direction=e.keyCode;
+        }
 		var moved=true,
-			shifted=shift(e.keyCode),
-			combined=combine(e.keyCode,1);
+			shifted=shift(direction),
+			combined=combine(direction,1);
 		if(!shifted && !combined)
 			{
 				console.log("Invalid Move");
 				moved=false;
 			}
-		shift(e.keyCode);	
+		shift(direction);	
 		if(moved)
 		{
 			fillRandomSpot();
@@ -344,6 +348,7 @@ var mygame = (function()
                 arr[i][j]=0;
             }
         score=0;
+        newGame();
         updateArena();
     }
 	function printBoard()
@@ -360,13 +365,20 @@ var mygame = (function()
             console.log(string);
 		}
 	}
+    function onSwipe(swipedir) 
+    {
+        move(1,swipedir);
+    }
 	function newGame()
 	{
         console.log("Game Begins!");
         fillRandomSpot();
         fillRandomSpot();
         printBoard();
+        onSwipeDetect.init("matrix",onSwipe);
         document.addEventListener("keydown",move);
+        var reset=document.getElementById("reset");
+        reset.addEventListener("click",resetGame);
    	}
   	return{
 		init:newGame
