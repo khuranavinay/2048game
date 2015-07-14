@@ -2,7 +2,7 @@ var mygame = (function()
 {
 	var arr = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]];
 	var score=0;
-	var highScore;
+	var highScore=localStorage.getItem("highScore");
 	function fillRandomSpot()
 	{
 		var i,j,z;
@@ -40,26 +40,27 @@ var mygame = (function()
 	}
 	function gameIsOver()
 	{
+        var boardIsFull=true;
 		for(var i=0;i<4;i++)
 		{
 			for(var j=0;j<4;j++)
 			{
 				if(arr[i][j]==0)
-					return false;
+					boardIsFull=false;
 			}
 		}
 		var combinePossible = false;
-		combinePossible=combine(97,0);
-		combinePossible=combine(100,0);
-		combinePossible=combine(119,0);
-		combinePossible=combine(115,0);
-		if(combinePossible==false)
+		combinePossible=combine(37,0);
+		combinePossible=combine(38,0);
+		combinePossible=combine(39,0);
+		combinePossible=combine(40,0);
+		if(!combinePossible && boardIsFull)
 			return true;
 	}
 	function combine(direction,caller)
 	{
 		var combined=false;
-		if(direction==100)
+		if(direction==39)
 		{
 			for(var i=0;i<4;i++)
 			{
@@ -71,13 +72,14 @@ var mygame = (function()
 						{
 							arr[i][j]*=2;
 							arr[i][j-1]=0;
+                            score+=arr[i][j];
 						}
 						combined=true;
 					}
 				}
 			}
 		}
-		else if(direction==97)
+		else if(direction==37)
 		{
 			for(var i=0;i<4;i++)
 			{
@@ -89,13 +91,14 @@ var mygame = (function()
 						{
 							arr[i][j]*=2;
 							arr[i][j+1]=0;
+                            score+=arr[i][j];
 						}
 						combined=true;
 					}
 				}
 			}
 		}
-		else if(direction==119)
+		else if(direction==38)
 		{
 			for(var j=0;j<4;j++)
 			{
@@ -107,13 +110,14 @@ var mygame = (function()
 						{
 							arr[i][j]*=2;
 							arr[i+1][j]=0;
+                            score+=arr[i][j];
 						}
 						combined=true;
 					}
 				}
 			}
 		}
-		else if(direction==115)
+		else if(direction==40)
 		{
 			for(var j=3;j>=0;j--)
 			{
@@ -125,6 +129,7 @@ var mygame = (function()
 						{
 							arr[i][j]*=2;
 							arr[i-1][j]=0;
+                            score+=arr[i][j];
 						}
 						combined=true;
 					}
@@ -136,7 +141,7 @@ var mygame = (function()
 	function shift(direction)
 	{
 		var shifted=false;
-		if(direction==100)
+		if(direction==39)
 		{
 			for(var i=0;i<4;i++)
 			{
@@ -158,7 +163,7 @@ var mygame = (function()
 				}
 			}
 		}
-		else if(direction==97)
+		else if(direction==37)
 		{
 			for(var i=0;i<4;i++)
 			{
@@ -180,7 +185,7 @@ var mygame = (function()
 				}
 			}
 		}
-		else if(direction==119)
+		else if(direction==38)
 		{
 			for(var j=0;j<4;j++)
 			{
@@ -202,7 +207,7 @@ var mygame = (function()
 				}
 			}
 		}
-		else if(direction==115)
+		else if(direction==40)
 		{
 			for(var j=3;j>=0;j--)
 			{
@@ -229,7 +234,8 @@ var mygame = (function()
 	function updateArena()
 	{
 		var x=0,y=0,i;
-		var L = document.documentElement.querySelectorAll(".row .box");
+		var L = document.querySelectorAll(".row .box");
+		console.log(L);
 		for(i=0;i<L.length && x<4;i++,y++)
 		{
 			if(arr[x][y]==0)
@@ -280,6 +286,10 @@ var mygame = (function()
 			{
 				L[i].setAttribute("class","box _2048")
 			}
+			else if(arr[x][y]==4096)
+			{
+				L[i].setAttribute("class","box _4096")
+			}
 			if(y==3)
 			{
 				x++;
@@ -289,33 +299,57 @@ var mygame = (function()
 	}
 	function move(e)
 	{
+        e.preventDefault;
 		var moved=true,
-			shifted=shift(e.charCode),
-			combined=combine(e.charCode,1);
+			shifted=shift(e.keyCode),
+			combined=combine(e.keyCode,1);
 		if(!shifted && !combined)
 			{
 				console.log("Invalid Move");
 				moved=false;
 			}
-		shift(e.charCode);	
-		if(made2048())
-		{
-			console.log("Congratulations,You have Won!");
-			return true;
-		}
+		shift(e.keyCode);	
 		if(moved)
 		{
 			fillRandomSpot();
 			printBoard();
-			if(gameIsOver)
+			if(gameIsOver())
 			{
 				console.log("GAME OVER!");
 			}
+            if(made2048())
+		    {
+			    console.log("Congratulations,You have Won!");
+            }
 		}
 	}
+    function updateScore()
+    {
+        var score_div=document.getElementById("score");
+        score_div.innerHTML=score;
+        if(score>highScore)
+        {
+            highScore=score;
+            localStorage.setItem("highScore",highScore);
+        }
+        var high_score=document.getElementById("highscore");
+        high_score.innerHTML=highScore;
+    }
+    function resetGame()
+    {
+        var i,j;
+        for(i=0;i<4;i++)
+            for(j=0;j<4;j++)
+            {
+                arr[i][j]=0;
+            }
+        score=0;
+        updateArena();
+    }
 	function printBoard()
 	{
 		updateArena();
+        updateScore();
 		for(var i=0;i<4;i++)
 		{
             var string="";
@@ -328,13 +362,13 @@ var mygame = (function()
 	}
 	function newGame()
 	{
-			console.log("Game Begins!");
-			fillRandomSpot();
-			fillRandomSpot();
-			printBoard();
-        	document.addEventListener("keypress",move);
+        console.log("Game Begins!");
+        fillRandomSpot();
+        fillRandomSpot();
+        printBoard();
+        document.addEventListener("keydown",move);
    	}
   	return{
-		init:newGame()
+		init:newGame
 	};
 })();

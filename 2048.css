@@ -1,67 +1,108 @@
-div#arena {
+div#matrix {
     display: flex;
     flex-direction: column;
-    background-color: black;
-    width: 80%;
+    background-color: white;
+    width: 500px;
     height: 500px;
-    margin: 5% auto;
+    /* margin: 5% auto; */
     justify-content: space-around;
-    border-radius: 10px;
+    border-radius: 40px;
     border-style: solid;
+    overflow: hidden;
+    box-sizing: border-box;
+    border-width: 12px;
+    /* border-color: white; */
 }
 
 .row {
     height: 25%;
-    background-color: yellowgreen;
+    background-color: black;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
 .box {
-    width: 24%;
-    height: 90%;
+    width: 23%;
+    height: 94%;
     background-color: cornflowerblue;
-    font-size: 6rem;
+    font-size: 3rem;
     text-align: center;
+    line-height: 120px;
+    border-radius: 17px;
+    box-sizing: border-box;
+    border-width: 2px;
+    border-color: rgb(85, 190, 178);
+    border-style: solid;
+    transition: all 0.2s;
+}
+#score:before{
+    content: "Score : ";
+}
+#highscore:before{
+    content: "High Score : ";
+}
+div#scores {
+    display: flex;
+    justify-content: space-around;
+    background-color: black;
+    width: 400px;
+    height: 10%;
+    align-items: center;
+    font-size: x-large;
+    color: cornflowerblue;
+    font-weight: bold;
+    border: solid 4px rgb(85, 190, 178);
+    border-radius: 20px;
+}
+div#arena {
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
 }
 
 body {
-    background-color: white;
-    height: 100%;
+    background-color: rgb(96, 112, 118);
+    height: 640px;
+    margin: 0;
 }
 
 ._2{
-    background-color:blueviolet;
-}
-._4{
-    background-color: crimson;
-}
-._8{
-    background-color: aqua;
-}
-._16{
     background-color: yellow;
 }
+._4{
+    background-color: brown;
+}
+._8{
+    background-color: blueviolet;
+}
+._16{
+    background-color: springgreen;
+}
 ._32{
-    background-color: darkmagenta;
+    background-color: darkorange;
 }
 ._64{
-    background-color: coral;
+    background-color: deeppink;
 }
 ._128{
-    background-color: plum;
+    background-color: red;
 }
 ._256{
-    background-color: slategray;
+    background-color: palegoldenrod;
 }
 ._512{
     background-color: sienna;
 }
 ._1024{
-    background-color:snow;
+    background-color: snow;
 }
 ._2048{
+    background-color:lime;
+}
+._4096{
     background-color:white;
 }
 ._2:after {
@@ -96,4 +137,7 @@ body {
 }
 ._2048:after {
     content: "2048";
+}
+._4096:after {
+    content: "4096";
 }

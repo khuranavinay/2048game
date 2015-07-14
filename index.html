@@ -6,34 +6,40 @@
         <script src="./2048.js"></script>
     </head>
     <body>
-		<div id='arena'>
-			<div class=row>
-				<div class='box'></div>
-				<div class='box'></div>
-				<div class='box'></div>
-				<div class='box'></div>
-			</div>
-			<div class='row'>
-				<div class='box'></div>
-				<div class='box'></div>
-				<div class='box'></div>
-				<div class='box'></div>
-			</div>
-			<div class='row'>
-				<div class='box'></div>
-				<div class='box'></div>
-				<div class='box'></div>
-				<div class='box'></div>
-			</div>
-			<div class='row'>
-				<div class='box'></div>
-				<div class='box'></div>
-				<div class='box'></div>
-				<div class='box'></div>
-			</div>
-		</div>
+        <div id='arena'>
+            <div id='scores'>
+                <div id='score'></div>
+                <div id='highscore'></div>
+            </div>
+            <div id='matrix'>
+                <div class=row>
+                    <div class='box'></div>
+                    <div class='box'></div>
+                    <div class='box'></div>
+                    <div class='box'></div>
+                </div>
+                <div class='row'>
+                    <div class='box'></div>
+                    <div class='box'></div>
+                    <div class='box'></div>
+                    <div class='box'></div>
+                </div>
+                <div class='row'>
+                    <div class='box'></div>
+                    <div class='box'></div>
+                    <div class='box'></div>
+                    <div class='box'></div>
+                </div>
+                <div class='row'>
+                    <div class='box'></div>
+                    <div class='box'></div>
+                    <div class='box'></div>
+                    <div class='box'></div>
+                </div>
+            </div>
+        </div>
     </body>
     <script>
-        window.document.addEventListener("load",mygame.init);
+        window.addEventListener("load",mygame.init);
     </script>
 </html>
