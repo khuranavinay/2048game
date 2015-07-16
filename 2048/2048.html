@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<title>2048</title>
+        <link rel='icon' href='2048icon.ico'>
+		<link rel='stylesheet' type='text/css' href='2048.css'>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="./2048.js"></script>
+        <script src="./swipe.js"></script>
+    </head>
+    <body>
+        <div id='arena'>
+            <div id='scores'>
+                <div id='score'></div>
+                <div id='highscore'></div>
+            </div>
+            <div id='matrix'>
+                <div class=row>
+                    <div class='box'></div>
+                    <div class='box'></div>
+                    <div class='box'></div>
+                    <div class='box'></div>
+                </div>
+                <div class='row'>
+                    <div class='box'></div>
+                    <div class='box'></div>
+                    <div class='box'></div>
+                    <div class='box'></div>
+                </div>
+                <div class='row'>
+                    <div class='box'></div>
+                    <div class='box'></div>
+                    <div class='box'></div>
+                    <div class='box'></div>
+                </div>
+                <div class='row'>
+                    <div class='box'></div>
+                    <div class='box'></div>
+                    <div class='box'></div>
+                    <div class='box'></div>
+                </div>
+            </div>
+            <div id='reset'><a href='#'>Reset</a></div>
+        </div>
+    </body>
+    <script>
+        window.addEventListener("load",mygame.init);
+    </script>
+</html>
