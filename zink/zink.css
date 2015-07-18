@@ -26,29 +26,19 @@ a{
     background-image: url('background.png');
     background-size: 100% 100%;
 }
-nav ul {
+nav ul ,.boxes{
     display:flex;
     justify-content:center;
-    width:80%;
+    width:100%;
     margin:auto;
+    flex-wrap: wrap;
     align-items: center;
     padding: 2% 0;
-}
-nav ul .navcol1,.navcol2{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-}
-.navcol1{
-    width:40%;
-}
-.navcol2{
-    width:60%;
+    text-align:center;
 }
 nav li{
-    text-align: center;
-    width:33%;
+    width:15%;
+    padding: 0 1px;
 }
 #picslider{
     position:relative;
@@ -73,12 +63,12 @@ nav li{
 img {
     width: 100%;
 }
-.boxes {
+/*.boxes {
   display: flex;
   justify-content: center;
   text-align: center;
     align-items: center;
-}
+}*/
 .box {
   width: 25%;
   margin: 2% 2%;
@@ -91,30 +81,18 @@ img {
   padding-left: 25%;
 }
 @media (max-width: 670px){
-    nav ul{
+    /*.boxes{
         flex-direction: column;
+    }*/
+    nav li{
+        width:30%;
     }
-    .boxes{
-        flex-direction: column;
-    }
-    nav ul{
+}
+@media (max-width: 325px){
+    nav li{
         width:100%;
     }
     .box{
         width:60%;
-    }
-    .navcol1,.navcol2{
-        width:100%;
-    }
-}
-@media (max-width: 325px){
-    nav ul{
-        flex-direction: column;
-    }
-    nav li{
-        width:100%;
-    }
-    nav ul .navcol1,.navcol2{
-        flex-direction: column;
     }
 }
