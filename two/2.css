@@ -1,0 +1,232 @@
+body
+{
+	margin:0;
+	font-size:18px;
+	text-align:center;
+	font-family: 'Montserrat', sans-serif;
+}
+.section
+{
+	display:flex;
+	flex-direction:column;
+	justify-content:space-around;
+	align-items:center;
+	padding: 0% 0% 5% 0%;
+}
+#Home
+{
+	background-image:url('images/header-bg.jpg');
+	background-size:cover;
+	padding-bottom:5%;
+}
+#toph
+{
+	display:flex;
+	justify-content:space-around;
+	align-items:center;
+	width:100%;
+	padding:2% 0%;
+	box-sizing:border-box;
+}
+.tellmore 
+{
+    background-color: rgb(255, 242, 0);
+	color: white;
+	padding:5px;
+}
+.sectioncontent
+{
+    display: flex;
+	justify-content:center;
+	align-items:flex-start;
+	flex-wrap:wrap;
+}
+#nav
+{
+	width:40%;
+}
+#navl
+{
+	display:flex;
+	list-style:none;
+	justify-content:space-between;	
+	padding:0;
+}
+nav > ul > li > a
+{
+	text-decoration:none;
+	color:floralwhite;
+}
+#homecontent
+{
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	padding:10%;
+	font-family: sans-serif;
+	color: white;
+}
+.serimages
+{
+	width: 20%;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	padding: 2%;
+}
+#portfolio,#Team
+{
+    background-color: rgb(244, 244, 244);
+}
+.portfolioimages
+{
+	margin:2%;
+}
+.portfolioimages > div 
+{
+    background-color: white;
+    padding: 2% 0%;
+}
+.row {
+    display: flex;
+    width: 90%;
+    margin:auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.col1 {
+    width: 25%;
+}
+
+.col2 {
+     width: 25%;
+   
+}
+
+.col3 {
+    width: 25%;
+}
+
+.col2 img {
+    border-radius: 100px;
+    border-style: solid;
+    border-color: rgb(241, 241, 241);
+    border-width: 5px;
+}
+.row:nth-child(2n) .col1
+{
+	order:3;
+}
+.row:nth-child(2n) .col2
+{
+	order:2;
+}
+.row:nth-child(2n) .col3
+{
+	order:1;
+}
+.teamimages img {
+    border-radius: 500px;
+    border-style: solid;
+    margin: 0%;
+    border-width: 6px;
+    border-color: white;
+}
+.teamimages {
+    align-items: center;
+    padding: 3%;
+}
+section.icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icons img {
+  padding: 2%;
+}
+form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+    /* flex-wrap: wrap; */
+}
+.form {
+    width: 80%;
+    height: 300px;
+}
+section#Contact {
+    background-image: url('images/contact-us-bg.jpg');
+    background-size: 100% 100%;
+}
+
+.formcolumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 45%;
+}
+
+.message {
+    height: 100%;
+    width: 45%;
+}
+
+textarea {
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    border-style: none;
+}
+.input {
+    height: 28%;
+    width: 100%;
+}
+
+input[type="text"] {
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    border-style: none;
+}
+
+section#Portfolio {
+    background-color: rgb(244, 244, 244);
+}
+.formrow {
+    display: flex;
+    width: 100%;
+    height: 70%;
+    justify-content: space-around;
+}
+
+.submit {
+    width: 25%;
+    height: 55px;
+    margin-top: 5%;
+    /* background-color: beige; */
+}
+
+input[type="submit"] {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 242, 0);
+    border-style: none;
+    border-radius: 5px;
+}
+footer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    height: 75px;
+}
+
+footer > div {
+    width: 42%;
+}
